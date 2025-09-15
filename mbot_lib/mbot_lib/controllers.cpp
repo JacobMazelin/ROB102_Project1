@@ -5,19 +5,22 @@
  */
 
 #include <mbot_lib/controllers.h>
+#include <iostream>
 
 
 float bangBangControl(float current, float setpoint, float scaling, float tolerance)
 {
     // *** Task: Implement this function according to the header file *** //
     float error = setpoint - current;
-    if(error > tolerance){
-            return scaling;
+    if (error > tolerance){
+        std::cout<<"Error: Greater"<<error<<std::endl;
+        return -scaling;
     } else if (error < -tolerance){
-            return -scaling;
+        std::cout<<"Error: Less Negative "<<error<<std::endl;
+        return scaling;
     }
 
-    return -0.1;
+    return 0;
 
     // *** End student code *** //
 }
@@ -25,8 +28,11 @@ float bangBangControl(float current, float setpoint, float scaling, float tolera
 float pControl(float current, float setpoint, float kp)
 {
     // *** Task: Implement this function according to the header file *** //
-
-    return -0.1;
+    float error = setpoint - current;
+    if (std::abs(error) > 0.01){
+        return kp * error;
+    }
+    return 0;
 
     // *** End student code *** //
 }

@@ -39,8 +39,9 @@ int main(int argc, const char *argv[])
 
     // *** Task 1: Adjust these values appropriately ***
 
-    float setpoint = 1.0;  // The goal distance from the wall in meters
-    float tolerance = 0.05; // The allowable tolerance in meters
+    float setpoint = 0.5;  // The goal distance from the wall in meters
+    float tolerance = 0.1;
+    float scaling =  0.3;
     // *** End student code *** //
 
     while (true) {
@@ -49,10 +50,12 @@ int main(int argc, const char *argv[])
 
         // Get the distance to the wall.
         float dist_to_wall = findFwdDist(ranges, thetas);
-        float error = setpoint - dist_to_wall;
-        if (dist_to_wall < 0) continue;
-        bangBangControl(dist_to_wall, setpoint, setpoint, tolerance);
+        std::cout << "Distance to wall: " << dist_to_wall << std::endl;
 
+        if (dist_to_wall < 0) continue;
+
+        robot.drive(bangBangControl(dist_to_wall, setpoint, scaling, tolerance), 0, 0);
+        // robot.drive(pControl(dist_to_wall, setpoint, 0.02), 0, 0);
         // *** Task 2: Implement the Follow Me controller *** //
 
         // *** End Student Code *** //
