@@ -40,7 +40,7 @@ int main(int argc, const char *argv[])
     // *** Task 1: Adjust these values appropriately ***
 
     float setpoint = 1.0;  // The goal distance from the wall in meters
-
+    float tolerance = 0.05; // The allowable tolerance in meters
     // *** End student code *** //
 
     while (true) {
@@ -49,7 +49,9 @@ int main(int argc, const char *argv[])
 
         // Get the distance to the wall.
         float dist_to_wall = findFwdDist(ranges, thetas);
+        float error = setpoint - dist_to_wall;
         if (dist_to_wall < 0) continue;
+        bangBangControl(dist_to_wall, setpoint, setpoint, tolerance);
 
         // *** Task 2: Implement the Follow Me controller *** //
 

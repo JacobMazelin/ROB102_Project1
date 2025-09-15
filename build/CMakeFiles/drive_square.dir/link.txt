@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14 -O2 -g -DNDEBUG CMakeFiles/drive_square.dir/p1_wall_follower/1_drive_square.cpp.o -o drive_square  -Wl,-rpath,/usr/local/lib /usr/local/lib/libmbot_bridge_cpp.so libmbot_lib.a 

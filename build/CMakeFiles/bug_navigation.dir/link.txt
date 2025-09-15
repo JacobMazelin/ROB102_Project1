@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14 -O2 -g -DNDEBUG CMakeFiles/bug_navigation.dir/p2_bug_navigation/3_bug_navigation.cpp.o -o bug_navigation  -Wl,-rpath,/usr/local/lib /usr/local/lib/libmbot_bridge_cpp.so libmbot_lib.a 

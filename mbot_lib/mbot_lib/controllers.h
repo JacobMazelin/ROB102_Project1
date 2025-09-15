@@ -24,6 +24,7 @@ float bangBangControl(float current, float setpoint, float scaling, float tolera
  * @param  kp The p gain of the controller.
  * @return  The control to be applied.
  */
+ 
 float pControl(float current, float setpoint, float kp);
 
 #endif  // MBOT_LIB_CONTROLLERS_H

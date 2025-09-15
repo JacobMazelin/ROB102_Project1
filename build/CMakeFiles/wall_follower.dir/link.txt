@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14 -O2 -g -DNDEBUG CMakeFiles/wall_follower.dir/p1_wall_follower/5_wall_follower.cpp.o -o wall_follower  -Wl,-rpath,/usr/local/lib /usr/local/lib/libmbot_bridge_cpp.so libmbot_lib.a 

@@ -10,6 +10,12 @@
 float bangBangControl(float current, float setpoint, float scaling, float tolerance)
 {
     // *** Task: Implement this function according to the header file *** //
+    float error = setpoint - current;
+    if(error > tolerance){
+            return scaling;
+    } else if (error < -tolerance){
+            return -scaling;
+    }
 
     return -0.1;
 

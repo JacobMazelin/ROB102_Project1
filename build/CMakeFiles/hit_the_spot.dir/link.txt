@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14 -O2 -g -DNDEBUG CMakeFiles/hit_the_spot.dir/p2_bug_navigation/2_hit_the_spot.cpp.o -o hit_the_spot  -Wl,-rpath,/usr/local/lib /usr/local/lib/libmbot_bridge_cpp.so libmbot_lib.a 

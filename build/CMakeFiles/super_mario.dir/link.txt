@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14 -O2 -g -DNDEBUG CMakeFiles/super_mario.dir/p2_bug_navigation/super_mario/run_super_mario.cpp.o -o super_mario  libsuper_mario_lib.a 
