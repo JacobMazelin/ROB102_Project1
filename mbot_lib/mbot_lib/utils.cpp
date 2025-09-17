@@ -10,8 +10,10 @@
 std::vector<float> rayConversionCartisean(float dist, float angle) 
 {
     // *** Task: Implement this function according to the header file *** //
+    float vx = cos(angle) * dist;
+    float vy = sin(angle) * dist;
 
-    return std::vector<float>();
+    return {vx, vy, 0};
 
     // *** End student code *** //
 }
@@ -20,7 +22,7 @@ std::vector<float> rayConversionVector(float angle)
 {
     // *** Task: Implement this function according to the header file *** //
 
-    return std::vector<float>();
+    return std::vector<float>(angle, angle, angle);
 
     // *** End student code *** //
 }
@@ -28,7 +30,12 @@ std::vector<float> rayConversionVector(float angle)
 int findMinDist(const std::vector<float>& ranges)
 {
     // *** Task: Implement this function according to the header file *** //
-
+    for(int i=0; i<ranges.size; i++){
+        if (ranges[i] < ranges[i+1]){
+            float minimum = i;
+        }
+    }
+    return minimum;
     return -1;
 
     // *** End student code *** //
@@ -37,8 +44,14 @@ int findMinDist(const std::vector<float>& ranges)
 int findMinNonzeroDist(const std::vector<float>& ranges)
 {
     // *** Task: Implement this function according to the header file *** //
-
-    return -1;
+    for(int i=0; i<ranges.size; i++){
+        if(ranges[i] == 0){
+            continue;
+        } else if (ranges[i] < ranges[i+1]){
+            float minimum = i;
+        }
+    }
+    return minimum;
     
     // *** End student code *** //
 }
