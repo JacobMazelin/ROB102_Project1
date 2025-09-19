@@ -38,8 +38,9 @@ int main(int argc, const char *argv[])
     std::vector<float> thetas;
 
     // *** Task 1: Adjust these values appropriately ***
-
-    float setpoint = 1;  // The goal distance from the wall in meters
+    float setpoint = 0.5;  // The goal distance from the wall in meters
+    float tolerance = 0.1;
+    float scaling =  0.3; // The goal distance from the wall in meters
 
     // *** End student code *** //
 
@@ -56,6 +57,7 @@ int main(int argc, const char *argv[])
         // Hint: Look at your code from follow_1D
         // Hint: When you compute the velocity command, you might find the functions
         // rayConversionVector helpful!
+        robot.drive(bangBangControl(dist_to_wall, setpoint, scaling, tolerance)*rayConversionVector(angle_to_wall)[0],bangBangControl(dist_to_wall, setpoint, scaling, tolerance)*rayConversionVector(angle_to_wall)[1],0);
 
         // *** End Student Code ***
 

@@ -21,8 +21,10 @@ std::vector<float> rayConversionCartisean(float dist, float angle)
 std::vector<float> rayConversionVector(float angle) 
 {
     // *** Task: Implement this function according to the header file *** //
-
-    return std::vector<float>(angle, angle, angle);
+    float x = cos(angle);
+    float y = sin(angle);
+    float z = 0;
+    return {x, y, z};
 
     // *** End student code *** //
 }
@@ -59,8 +61,12 @@ int findMinNonzeroDist(const std::vector<float>& ranges)
 std::vector<float> vectorAdd(const std::vector<float>& v1, const std::vector<float>& v2) 
 {
     // *** Task: Implement this function according to the header file *** //
+    std::vector<float> result(v1.size);
+    for(int i=0; i<v1.size(); i++){
+        result[i] = v1[i] + v2[i];
+    }
 
-    return std::vector<float>();
+    return result;
 
     // *** End student code *** //
 }
@@ -68,8 +74,8 @@ std::vector<float> vectorAdd(const std::vector<float>& v1, const std::vector<flo
 std::vector<float> crossProduct(const std::vector<float>& v1, const std::vector<float>& v2) 
 {
     // *** Task: Implement this function according to the header file *** //
-
-    return std::vector<float>();
+    result = {v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]};
+    return result;
 
     // *** End student code *** //
 }
