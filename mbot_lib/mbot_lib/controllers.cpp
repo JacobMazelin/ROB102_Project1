@@ -29,6 +29,8 @@ float pControl(float current, float setpoint, float kp)
 {
     // *** Task: Implement this function according to the header file *** //
     float error = setpoint - current;
+    //Normalize
+    float mag = 0.0;
     if (std::abs(error) > 0.01){
         return kp * error;
     }

@@ -31,14 +31,14 @@ std::vector<float> rayConversionVector(float angle)
 
 int findMinDist(const std::vector<float>& ranges)
 {
+    float minimum = 0;
     // *** Task: Implement this function according to the header file *** //
-    for(int i=0; i<ranges.size; i++){
-        if (ranges[i] < ranges[i+1]){
-            float minimum = i;
+    for(int i=0; i<ranges.size(); i++){
+        if (ranges[i] < minimum){
+             minimum = i;
         }
     }
     return minimum;
-    return -1;
 
     // *** End student code *** //
 }
@@ -46,11 +46,12 @@ int findMinDist(const std::vector<float>& ranges)
 int findMinNonzeroDist(const std::vector<float>& ranges)
 {
     // *** Task: Implement this function according to the header file *** //
-    for(int i=0; i<ranges.size; i++){
+    float minimum = ranges[0];
+    for(int i=0; i<ranges.size(); i++){
         if(ranges[i] == 0){
             continue;
-        } else if (ranges[i] < ranges[i+1]){
-            float minimum = i;
+        } else if (ranges[i] < minimum){
+            minimum = i;
         }
     }
     return minimum;
@@ -61,7 +62,7 @@ int findMinNonzeroDist(const std::vector<float>& ranges)
 std::vector<float> vectorAdd(const std::vector<float>& v1, const std::vector<float>& v2) 
 {
     // *** Task: Implement this function according to the header file *** //
-    std::vector<float> result(v1.size);
+    std::vector<float> result;
     for(int i=0; i<v1.size(); i++){
         result[i] = v1[i] + v2[i];
     }
@@ -74,8 +75,7 @@ std::vector<float> vectorAdd(const std::vector<float>& v1, const std::vector<flo
 std::vector<float> crossProduct(const std::vector<float>& v1, const std::vector<float>& v2) 
 {
     // *** Task: Implement this function according to the header file *** //
-    result = {v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]};
-    return result;
+    return {v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]};
 
     // *** End student code *** //
 }
