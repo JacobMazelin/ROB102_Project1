@@ -38,11 +38,11 @@ int main(int argc, const char *argv[])
     std::vector<float> thetas;
 
     // *** Task 1: Adjust these values appropriately ***
-    float setpoint = 0.5;  // The goal distance from the wall in meters
+    float setpoint = 0.325;  // The goal distance from the wall in meters
     float tolerance = 0.1;
     float scaling =  0.3; 
-    float kP = 1.2;
-    float maxVelocity = 0.9;
+    float kP = -1;
+    float maxVelocity = 0.4;
 
     // *** End student code *** //
 
@@ -55,29 +55,20 @@ int main(int argc, const char *argv[])
         float dist_to_wall = ranges[min_idx];
         float angle_to_wall = thetas[min_idx];
 
+        std::cout << min_idx << ", Distance to wall: " << dist_to_wall << "\n";
+
         float velocity = pControl(dist_to_wall, setpoint, kP);
     
         if (velocity > maxVelocity) {
             velocity = maxVelocity;
         } else if (velocity < -maxVelocity){
-            velocity = maxVelocity;
+            velocity = -maxVelocity;
         } else {
             velocity = velocity;
         }
 
         std::vector<float> velocities = rayConversionCartisean(velocity, angle_to_wall);
 
-        // *** Task 2: Implement the 2D Follow Me controller ***
-        // Hint: Look at your code from follow_1D
-        // Hint: When you compute the velocity command, you might find the functions
-        // rayConversionVector helpful!
-        // robot.drive(bangBangControl(dist_to_wall, setpoint, scaling, tolerance)*rayConversionVector(angle_to_wall)[0],
-        // bangBangControl(dist_to_wall, setpoint, scaling, tolerance)*rayConversionVector(angle_to_wall)[1],
-        // 0);
-
-        // robot.drive(pControl(dist_to_wall, setpoint, 0.5)*rayConversionVector(angle_to_wall)[0],
-        // pControl(dist_to_wall, setpoint, 0.5)*rayConversionVector(angle_to_wall)[1],
-        // 0);
         robot.drive(velocities[0], velocities[1], 0);
 
         // *** End Student Code ***

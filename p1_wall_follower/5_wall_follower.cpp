@@ -36,7 +36,24 @@ int main(int argc, const char *argv[])
 
     while (true) {
 
-        // *** Task: Implement wall following *** //
+        robot.readLidarScan(ranges, thetas);
+
+        // Get the distance to the wall.
+        float min_idx = findMinNonzeroDist(ranges);
+        float dist_to_wall = ranges[min_idx];
+        float angle_to_wall = thetas[min_idx];
+
+        float velocity = pControl(dist_to_wall, setpoint, kP);
+    
+        if (velocity > maxVelocity) {
+            velocity = maxVelocity;
+        } else if (velocity < -maxVelocity){
+            velocity = -maxVelocity;
+        } else {
+            velocity = velocity;
+        }
+
+        std::vector<float> velocities = rayConversionCartisean(velocity, angle_to_wall);
 
         // *** End student code *** //
 
