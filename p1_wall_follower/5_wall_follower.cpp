@@ -33,6 +33,11 @@ int main(int argc, const char *argv[])
     // Create empty vectors to store the scan data.
     std::vector<float> ranges;
     std::vector<float> thetas;
+    float setpoint = 0.325;  // The goal distance from the wall in meters
+    float tolerance = 0.1;
+    float scaling =  0.3; 
+    float kP = -1;
+    float maxVelocity = 0.4;
 
     while (true) {
 
@@ -53,7 +58,13 @@ int main(int argc, const char *argv[])
             velocity = velocity;
         }
 
-        std::vector<float> velocities = rayConversionCartisean(velocity, angle_to_wall);
+        std::vector<float> v_to_wall = rayConversionCartisean(velocity, angle_to_wall);
+        std::vector<float> v_up = {0,0,1};
+
+        std::vector<float> v_forward = crossProduct(v_to_wall, v_up);
+        std::vector<float>  correction_vector = //TODO
+        std::vector<float> final_command = v_forward + correction_vector;
+        robot.drive(v_forward[0], v_forward[1], 0);
 
         // *** End student code *** //
 
