@@ -34,8 +34,8 @@ int main(int argc, const char *argv[])
     sleepFor(1.5);
     
     for(int i=1; i<=4; i++) {
-        cout << "x: " << rayConversionCartisean(0.5, -144*M_PI/180)[0] << "y" << rayConversionCartisean(0.5, -144*M_PI/180)[1]<< "\n";
-        robot.drive(rayConversionCartisean(0.5, -144*i*M_PI/180)[0],rayConversionCartisean(0.5, -144*i*M_PI/180)[1],0);
+        cout << "x: " << rayConversionCartesian(0.5, -144*M_PI/180)[0] << "y" << rayConversionCartesian(0.5, -144*M_PI/180)[1]<< "\n";
+        robot.drive(rayConversionCartesian(0.5, -144*i*M_PI/180)[0],rayConversionCartesian(0.5, -144*i*M_PI/180)[1],0);
         sleepFor(1.5);
     }
     

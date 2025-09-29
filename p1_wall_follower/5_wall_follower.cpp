@@ -58,11 +58,11 @@ int main(int argc, const char *argv[])
             velocity = velocity;
         }
 
-        std::vector<float> v_to_wall = rayConversionCartisean(0.5, angle_to_wall);
+        std::vector<float> v_to_wall = rayConversionCartesian(0.5, angle_to_wall);
         std::vector<float> v_up = {0,0,1};
 
         std::vector<float> v_forward = crossProduct(v_to_wall, v_up);
-        std::vector<float> correction_vector = rayConversionCartisean(velocity, angle_to_wall);
+        std::vector<float> correction_vector = rayConversionCartesian(velocity, angle_to_wall);
         std::vector<float> final_command = {v_forward[0] + correction_vector[0], v_forward[1] + correction_vector[1]};
         robot.drive(final_command[0], final_command[1], 0);
 

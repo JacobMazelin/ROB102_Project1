@@ -7,7 +7,7 @@
 #include <mbot_lib/utils.h>
 
 
-std::vector<float> rayConversionCartisean(float dist, float angle) 
+std::vector<float> rayConversionCartesianCartesian(float dist, float angle) 
 {
     // *** Task: Implement this function according to the header file *** //
     float vx = cos(angle) * dist;

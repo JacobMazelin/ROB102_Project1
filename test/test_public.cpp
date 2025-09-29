@@ -65,14 +65,14 @@ TEST(PControl, TestPositive) {
     ASSERT_FLOAT_EQ(result, (1) * .2);
 }
 
-TEST(RayConversionCartisean, TestOne) {
+TEST(RayConversionCartesian, TestOne) {
     float dist = 10;
     float angle = 1.5;
     std::vector<float> correct_result = {.707372, 9.97495};
     testRayConversionCartesian(dist, angle, correct_result);
 }
 
-TEST(RayConversionCartisean, TestTwo) {
+TEST(RayConversionCartesian, TestTwo) {
     float dist = 5;
     float angle = -0.52;
     std::vector<float> correct_result = {4.3390961,-2.4844};

@@ -67,7 +67,7 @@ int main(int argc, const char *argv[])
             velocity = velocity;
         }
 
-        std::vector<float> velocities = rayConversionCartisean(velocity, angle_to_wall);
+        std::vector<float> velocities = rayConversionCartesian(velocity, angle_to_wall);
 
         robot.drive(velocities[0], velocities[1], 0);
 
