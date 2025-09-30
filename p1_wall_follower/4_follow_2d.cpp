@@ -55,10 +55,11 @@ int main(int argc, const char *argv[])
         float dist_to_wall = ranges[min_idx];
         float angle_to_wall = thetas[min_idx];
 
-        std::cout << min_idx << ", Distance to wall: " << dist_to_wall << "\n";
-
         float velocity = pControl(dist_to_wall, setpoint, kP);
-    
+
+        std::cout << min_idx << ", Distance to wall: " << dist_to_wall << "\n";
+        
+        //Normalize
         if (velocity > maxVelocity) {
             velocity = maxVelocity;
         } else if (velocity < -maxVelocity){

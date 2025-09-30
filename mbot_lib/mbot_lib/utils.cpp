@@ -7,7 +7,7 @@
 #include <mbot_lib/utils.h>
 
 
-std::vector<float> rayConversionCartesianCartesian(float dist, float angle) 
+std::vector<float> rayConversionCartesian(float dist, float angle) 
 {
     // *** Task: Implement this function according to the header file *** //
     float vx = cos(angle) * dist;
@@ -31,17 +31,16 @@ std::vector<float> rayConversionVector(float angle)
 
 int findMinDist(const std::vector<float>& ranges)
 {
-    float minimum = 0;
+    float minimum = HIGH;
+    int min_idx = 0;
     // *** Task: Implement this function according to the header file *** //
-    for(int i=0; i<ranges.size(); i++){
-        if(ranges[i] <= 0){
-            return -1;
-        }
-        if (ranges[i] < minimum){
-             minimum = i;
+    for(int i=0; i<ranges.size(); ++i){
+        if(ranges[i] < minimum && ranges[i] >= 0){
+            min_idx = i;
+            minimum = ranges[i];
         }
     }
-    return minimum;
+    return min_idx;
 
     // *** End student code *** //
 }
@@ -49,16 +48,16 @@ int findMinDist(const std::vector<float>& ranges)
 int findMinNonzeroDist(const std::vector<float>& ranges)
 {
     // *** Task: Implement this function according to the header file *** //
-    float minimum = 10000;
-    int lowRangeIndex = -1;
-
-    for(int i=0; i<ranges.size(); i++){
-        if(ranges[i] <= minimum && ranges[i] != 0){
+    float minimum = HIGH;
+    int min_idx = 0;
+    // *** Task: Implement this function according to the header file *** //
+    for(int i=0; i<ranges.size(); ++i){
+        if(ranges[i] < minimum && ranges[i] > 0){
+            min_idx = i;
             minimum = ranges[i];
-            lowRangeIndex = i;
         }
     }
-    return lowRangeIndex;
+    return min_idx;
     
     // *** End student code *** //
 
@@ -69,7 +68,7 @@ std::vector<float> vectorAdd(const std::vector<float>& v1, const std::vector<flo
     // *** Task: Implement this function according to the header file *** //
     std::vector<float> result;
     for(int i=0; i<v1.size(); i++){
-        result[i] = v1[i] + v2[i];
+        result.push_back(v1[i] + v2[i]);
     }
 
     return result;
