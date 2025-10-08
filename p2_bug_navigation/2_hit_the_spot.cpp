@@ -40,11 +40,19 @@ int main(){
     while (true) {
         
         // *** Task: Implement hit the spot *** //
+        
         vector<float> driveCommand = computeDriveToPoseCommand(goal, robot.readOdometry());
+        if(goal[0] - robot.readOdometry()[0] < 0.05 && goal[1] - robot.readOdometry()[1] < 0.05){
+            robot.stop();
+            robot.drive(0,0,goal[2]-robot.readOdometry()[2]);
+            if(goal[2] - robot.readOdometry()[2] < 0.2) break;
+        }
+        else {
         robot.drive(driveCommand[0], driveCommand[1], driveCommand[2]);
-        cout << "X: " << robot.readOdometry()[0] << "\n";
-        cout << "Y: " << robot.readOdometry()[1] << "\n";
-        cout << "Theta: " << robot.readOdometry()[2] << "\n";
+        }
+        cout << "X: " << goal[0] - robot.readOdometry()[0] << "\n";
+        cout << "Y: " << goal[1] - robot.readOdometry()[1] << "\n";
+        cout << "Theta: " << goal[2] - robot.readOdometry()[2] << "\n";
         // *** End student code *** //
         
         if (ctrl_c_pressed) break;
