@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.ino": "arduino",
+        "iostream": "cpp",
+        "vector": "cpp"
+    }
+}
