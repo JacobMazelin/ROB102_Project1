@@ -7,7 +7,7 @@
 #include <mbot_lib/behaviors.h>
 #include <mbot_lib/controllers.h>
 #include <mbot_lib/utils.h>
-
+using namespace std;
 
 bool ctrl_c_pressed;
 void ctrlc(int) {
@@ -24,15 +24,48 @@ int main() {
     // Reset the robot odometry to zero.
     robot.resetOdometry();
 
+    float goal_x, goal_y, goal_theta;
+
+    cout << "Enter x: ";
+    cin>>goal_x;
+    cout << "Enter y: ";
+    cin>>goal_y;
+    cout << "Enter theta in degrees: ";
+    cin>>goal_theta;
+    goal_theta = goal_theta * (M_PI / 180); //Convert to radians
+    vector<float> goal = {goal_x, goal_y, goal_theta};
+
+    std::vector<float> ranges;
+    std::vector<float> thetas;
+    vector<float> pose;
+
+    pose = {0, 0, 0};
+
     // *** Task: Get the goal pose (x, y, theta) from the user *** //
 
     // *** End student code *** //
 
     // *** Task: Implement bug navigation finite state machine *** //
+
     
     // NOTE: You may want to change the condition in this loop.
     while (true) {
+        
+        vector<float> wall_follower = computeWallFollowerCommand(ranges, thetas);
+        vector<float> drive_to_pose = computeDriveToPoseCommand(goal, robot.readOdometry());
 
+        robot.readLidarScan(ranges, thetas);
+        pose = robot.readOdometry();
+
+        if(isGoalAngleObstructed(goal, pose, ranges, thetas)){
+            robot.drive(wall_follower[0], wall_follower[1], 0);
+        }
+        else{
+            robot.drive(drive_to_pose[0], drive_to_pose[1], 0);
+        }
+        if(goal[0] - pose[0] < 0.05 && goal[1] - pose[1] < 0.05){
+            break;
+        }
         if(ctrl_c_pressed) break;
     }
 
