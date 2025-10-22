@@ -66,7 +66,7 @@ int main() {
             robot.drive(drive_to_pose[0], drive_to_pose[1], 0); //TODO
             cout << "Drive to Pose Enabled\n";
         }
-        if(goal[0] - pose[0] < 0.05 && goal[1] - pose[1] < 1){
+        if(abs(goal[0] - pose[0]) < 0.05 && abs(goal[1] - pose[1]) < 1&& abs(goal[2] - pose[2]) < 3){
             cout << "Done\n";
             break;
         }
