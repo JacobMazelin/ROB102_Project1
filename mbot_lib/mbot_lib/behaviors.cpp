@@ -49,7 +49,9 @@ std::vector<float> computeDriveToPoseCommand(const std::vector<float>& goal, con
     float velocity = sqrt(dx*dx + dy*dy);
     dx = 0.5* (dx / velocity);
     dy = 0.5* (dy / velocity);
-    float dtheta = normalizeAngle(pose[2]);
+    //TODO
+    float goal_world = atan2(dy, dx);
+    float dtheta = normalizeAngle(goal_world - pose[2]); //goal[2]
     std::vector<float> error = {dx, dy};
     transformVector2D(error, dtheta);
     // float k_x = 0.2;
@@ -70,14 +72,14 @@ bool isGoalAngleObstructed(const std::vector<float>& goal, const std::vector<flo
                            const std::vector<float>& ranges, const std::vector<float>& thetas)
 {
     // *** Task: Implement this function according to the header file *** //
-    float min_dist = findMinNonzeroDistInSlice(ranges, thetas, goal[2], M_PI/4);
-    if(min_dist > 0.05){
-        return true;
-    }else {
+    float target_angle = atan2(goal[1]-pose[1], goal[0]-pose[0]);
+    float min_dist = findMinNonzeroDistInSlice(ranges, thetas, target_angle-pose[2], M_PI/4);
+    if (min_dist < 0.2 && min_dist > 0){
+        return true; 
+    } else {
         return false;
     }
-    //static int findMinNonzeroDistInSlice(const std::vector<float>& ranges, const std::vector<float>& thetas,
-     //                                float target_angle, float slice_size)
+    
     return false;
 
     // *** End student code *** //

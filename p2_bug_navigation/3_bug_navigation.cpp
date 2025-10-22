@@ -35,9 +35,11 @@ int main() {
     goal_theta = goal_theta * (M_PI / 180); //Convert to radians
     vector<float> goal = {goal_x, goal_y, goal_theta};
 
-    std::vector<float> ranges;
-    std::vector<float> thetas;
+    vector<float> ranges;
+    vector<float> thetas;
     vector<float> pose;
+    vector<float> wall_follower;
+    vector<float> drive_to_pose;
 
     pose = {0, 0, 0};
 
@@ -50,18 +52,17 @@ int main() {
     
     // NOTE: You may want to change the condition in this loop.
     while (true) {
-        
-        vector<float> wall_follower = computeWallFollowerCommand(ranges, thetas);
-        vector<float> drive_to_pose = computeDriveToPoseCommand(goal, robot.readOdometry());
 
         robot.readLidarScan(ranges, thetas);
         pose = robot.readOdometry();
 
         if(isGoalAngleObstructed(goal, pose, ranges, thetas)){
+            wall_follower = computeWallFollowerCommand(ranges, thetas);
             robot.drive(wall_follower[0], wall_follower[1], 0);
         }
-        else{
-            robot.drive(drive_to_pose[0], drive_to_pose[1], 0);
+        else {
+            drive_to_pose = computeDriveToPoseCommand(goal, robot.readOdometry());
+            robot.drive(drive_to_pose[0], drive_to_pose[1], drive_to_pose[2]); //TODO
         }
         if(goal[0] - pose[0] < 0.05 && goal[1] - pose[1] < 0.05){
             break;
