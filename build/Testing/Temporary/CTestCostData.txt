@@ -1,0 +1,5 @@
+SuperMario.TestNoEvents 1 0.00860784
+SuperMario.TestSequence1 1 0.00861156
+SuperMario.TestSequence2 1 0.00889192
+SuperMario.TestSequence3 1 0.0103088
+---

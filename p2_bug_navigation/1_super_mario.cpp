@@ -99,6 +99,7 @@ int playGame(std::vector<char> &events, bool display) {
             break;
             case 1:
             points+=1;
+            break;
             case 2:
             points+=3;
             break;

@@ -47,7 +47,7 @@ std::vector<float> computeDriveToPoseCommand(const std::vector<float>& goal, con
     float dx = goal[0] - pose[0];
     float dy = goal[1] - pose[1];
     float velocity = sqrt(dx*dx + dy*dy);
-    dx = 0.5* (dx / velocity);
+    dx = 0.5 * (dx / velocity);
     dy = 0.5* (dy / velocity);
     //TODO
     float goal_world = atan2(dy, dx);
@@ -73,14 +73,13 @@ bool isGoalAngleObstructed(const std::vector<float>& goal, const std::vector<flo
 {
     // *** Task: Implement this function according to the header file *** //
     float target_angle = atan2(goal[1]-pose[1], goal[0]-pose[0]);
-    float min_dist = findMinNonzeroDistInSlice(ranges, thetas, target_angle-pose[2], M_PI/4);
-    if (min_dist < 0.2 && min_dist > 0){
+    int min_idx = findMinNonzeroDistInSlice(ranges, thetas, target_angle-pose[2], M_PI/10);
+    float min_dist = ranges[min_idx];
+    if (min_dist < 1 && min_dist > 0){
         return true; 
     } else {
         return false;
     }
-    
-    return false;
 
     // *** End student code *** //
 }

@@ -1,0 +1,111 @@
+Start testing: Oct 22 14:15 EDT
+----------------------------------------------------------
+20/26 Testing: SuperMario.TestNoEvents
+20/26 Test: SuperMario.TestNoEvents
+Command: "/home/mbot/Desktop/Project1/p1_and_p2_template/build/test_public" "--gtest_filter=SuperMario.TestNoEvents" "--gtest_also_run_disabled_tests"
+Directory: /home/mbot/Desktop/Project1/p1_and_p2_template/build
+"SuperMario.TestNoEvents" start time: Oct 22 14:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/mbot/googletest-1.15.2/googletest/src/gtest_main.cc
+Note: Google Test filter = SuperMario.TestNoEvents
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SuperMario
+[ RUN      ] SuperMario.TestNoEvents
+[       OK ] SuperMario.TestNoEvents (0 ms)
+[----------] 1 test from SuperMario (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SuperMario.TestNoEvents" end time: Oct 22 14:15 EDT
+"SuperMario.TestNoEvents" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/26 Testing: SuperMario.TestSequence1
+21/26 Test: SuperMario.TestSequence1
+Command: "/home/mbot/Desktop/Project1/p1_and_p2_template/build/test_public" "--gtest_filter=SuperMario.TestSequence1" "--gtest_also_run_disabled_tests"
+Directory: /home/mbot/Desktop/Project1/p1_and_p2_template/build
+"SuperMario.TestSequence1" start time: Oct 22 14:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/mbot/googletest-1.15.2/googletest/src/gtest_main.cc
+Note: Google Test filter = SuperMario.TestSequence1
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SuperMario
+[ RUN      ] SuperMario.TestSequence1
+[       OK ] SuperMario.TestSequence1 (0 ms)
+[----------] 1 test from SuperMario (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SuperMario.TestSequence1" end time: Oct 22 14:15 EDT
+"SuperMario.TestSequence1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/26 Testing: SuperMario.TestSequence2
+22/26 Test: SuperMario.TestSequence2
+Command: "/home/mbot/Desktop/Project1/p1_and_p2_template/build/test_public" "--gtest_filter=SuperMario.TestSequence2" "--gtest_also_run_disabled_tests"
+Directory: /home/mbot/Desktop/Project1/p1_and_p2_template/build
+"SuperMario.TestSequence2" start time: Oct 22 14:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/mbot/googletest-1.15.2/googletest/src/gtest_main.cc
+Note: Google Test filter = SuperMario.TestSequence2
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SuperMario
+[ RUN      ] SuperMario.TestSequence2
+[       OK ] SuperMario.TestSequence2 (0 ms)
+[----------] 1 test from SuperMario (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SuperMario.TestSequence2" end time: Oct 22 14:15 EDT
+"SuperMario.TestSequence2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/26 Testing: SuperMario.TestSequence3
+23/26 Test: SuperMario.TestSequence3
+Command: "/home/mbot/Desktop/Project1/p1_and_p2_template/build/test_public" "--gtest_filter=SuperMario.TestSequence3" "--gtest_also_run_disabled_tests"
+Directory: /home/mbot/Desktop/Project1/p1_and_p2_template/build
+"SuperMario.TestSequence3" start time: Oct 22 14:15 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/mbot/googletest-1.15.2/googletest/src/gtest_main.cc
+Note: Google Test filter = SuperMario.TestSequence3
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SuperMario
+[ RUN      ] SuperMario.TestSequence3
+[       OK ] SuperMario.TestSequence3 (0 ms)
+[----------] 1 test from SuperMario (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SuperMario.TestSequence3" end time: Oct 22 14:15 EDT
+"SuperMario.TestSequence3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 22 14:15 EDT

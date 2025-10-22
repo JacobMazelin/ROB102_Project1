@@ -59,19 +59,23 @@ int main() {
         if(isGoalAngleObstructed(goal, pose, ranges, thetas)){
             wall_follower = computeWallFollowerCommand(ranges, thetas);
             robot.drive(wall_follower[0], wall_follower[1], 0);
+            cout << "Wall Follower Enabled\n";
         }
         else {
             drive_to_pose = computeDriveToPoseCommand(goal, robot.readOdometry());
-            robot.drive(drive_to_pose[0], drive_to_pose[1], drive_to_pose[2]); //TODO
+            robot.drive(drive_to_pose[0], drive_to_pose[1], 0); //TODO
+            cout << "Drive to Pose Enabled\n";
         }
-        if(goal[0] - pose[0] < 0.05 && goal[1] - pose[1] < 0.05){
+        if(goal[0] - pose[0] < 0.05 && goal[1] - pose[1] < 1){
+            cout << "Done\n";
             break;
         }
         if(ctrl_c_pressed) break;
+        cout << "\nX: " << pose[0] << " Y: " << pose[1] << " Theta: " << pose[2];
     }
 
     // *** End student code *** //
-
+    cout << "\nFinal X: " << pose[0] << " Final Y: " << pose[1] << " Final Theta: " << pose[2];
     // Stop the robot.
     robot.stop();
 
